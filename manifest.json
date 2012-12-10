@@ -1,0 +1,9 @@
+{
+    "name": "Turntable Junk",
+    "manifest_version": 2,
+    "version": "0.1",
+    "content_scripts": [{
+        "matches": ["http://*/*"],
+        "js": ["file.js"]
+    }]
+}
