@@ -1,3 +1,4 @@
+//Spinning reddit alien
 window.stickFrames = {
 1: [{"top": 104, "angle": 0, "sticker_id": "4f873b32af173a2903816e52", "left": 214}],
 2: [{"top": 104, "angle": 10, "sticker_id": "4f873b32af173a2903816e52", "left": 214}],
@@ -36,6 +37,7 @@ window.stickFrames = {
 35: [{"top": 104, "angle": 340, "sticker_id": "4f873b32af173a2903816e52", "left": 214}],
 36: [{"top": 104, "angle": 350, "sticker_id": "4f873b32af173a2903816e52", "left": 214}],
 };
+//Finding TTAPI
 var a = / Preparing message /i;
 for (var b in turntable) {
     var c = turntable[b];
@@ -47,7 +49,7 @@ for (var b in turntable) {
         window.ttApi = c;
     }
 }
-window.stickersOn = false;
+//A-Z sticker placements
 window.stickLtrs = {
 ' ':[],
 a:[{"top": 47, "angle": -64.8000044463, "sticker_id": "4f86fd32e77989117e000001", "left": 170}, {"top": 29, "angle": 64.8000044463, "sticker_id": "4f86fd32e77989117e000001", "left": 217}, {"top": 139, "angle": -64.8000044463, "sticker_id": "4f86fd32e77989117e000001", "left": 127}, {"top": 234, "angle": -64.8000044463, "sticker_id": "4f86fd32e77989117e000001", "left": 86}, {"top": 107, "angle": 64.8000044463, "sticker_id": "4f86fd32e77989117e000001", "left": 255}, {"top": 186, "angle": 64.8000044463, "sticker_id": "4f86fd32e77989117e000001", "left": 295}, {"top": 229, "angle": 64.8000044463, "sticker_id": "4f86fd32e77989117e000001", "left": 315}, {"top": 174, "angle": 0, "sticker_id": "4f86fd32e77989117e000001", "left": 142}, {"top": 174, "angle": 0, "sticker_id": "4f86fd32e77989117e000001", "left": 239}],
@@ -77,6 +79,7 @@ x:[{"top": 79, "angle": 50, "sticker_id": "4f86fdede77989117e000003", "left": 78
 y:[{"top": 79, "angle": 50, "sticker_id": "4f86fd27e77989117e000000", "left": 78}, {"top": 66, "angle": 50, "sticker_id": "4f86fd27e77989117e000000", "left": 106}, {"top": 189, "angle": -50, "sticker_id": "4f86fd27e77989117e000000", "left": 86}, {"top": 198, "angle": -50, "sticker_id": "4f86fd27e77989117e000000", "left": 118}, {"top": 59, "angle": -50, "sticker_id": "4f86fd27e77989117e000000", "left": 211}, {"top": 77, "angle": -50, "sticker_id": "4f86fd27e77989117e000000", "left": 235}],
 z:[{"top": 18, "angle": -90, "sticker_id": "4f873b32af173a2903816e52", "left": 117}, {"top": 15, "angle": -90, "sticker_id": "4f873b32af173a2903816e52", "left": 205}, {"top": 15, "angle": -90, "sticker_id": "4f873b32af173a2903816e52", "left": 297}, {"top": 65, "angle": 52.5258675285, "sticker_id": "4f873b32af173a2903816e52", "left": 288}, {"top": 116, "angle": 52.5258675285, "sticker_id": "4f873b32af173a2903816e52", "left": 206}, {"top": 178, "angle": 52.5258675285, "sticker_id": "4f873b32af173a2903816e52", "left": 131}, {"top": 217, "angle": 90, "sticker_id": "4f873b32af173a2903816e52", "left": 114}, {"top": 212, "angle": 90, "sticker_id": "4f873b32af173a2903816e52", "left": 218}, {"top": 208, "angle": 90, "sticker_id": "4f873b32af173a2903816e52", "left": 299}, {"top": 259, "angle": 0, "sticker_id": "4f86fe06e77989117e000004", "left": 391}]
 }
+//My original sticker placement
 window.myStickers = {
 mine:[{top: -33, angle: 239.72956817,left: -72,sticker_id: "4f86febfe77989117e00000a"},
 	{top: 262, angle: 405.246818091,left: 475,sticker_id: "4f86febfe77989117e00000a"},
@@ -86,4 +89,3 @@ mine:[{top: -33, angle: 239.72956817,left: -72,sticker_id: "4f86febfe77989117e00
 	{top: 152,angle: -0.350701903825,left: -106,sticker_id: "4f86fe84e77989117e000008"},
 	{top: 147,angle: 0.00230560844905,left: -147,sticker_id: "4f86fe33e77989117e000006"}]
 };
-window.currFrm = 0;
