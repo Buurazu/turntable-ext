@@ -1,54 +1,56 @@
 function customConsole() {
-window.findConnects = function() {
-//Take the artist and title currently playing, convert to lowercase, remove whitespace and non-alphanumeric characters
-var artist = turntable.current_artist.toLowerCase().replace(/[^\w\s]|_/g, "").replace(/\s+/g, "");
-var title = turntable.current_title.toLowerCase().replace(/[^\w\s]|_/g, "").replace(/\s+/g, "");
-//The songsByFid include any songs you've removed from your queue; validSongs combines songsByFid and the files[] array
-var songs = $(turntable.playlist.songsByFid)[0]; var validSongs = new Array();
-$.each(songs, function(i, item) {
-	var found = false;
-	for (i = 0; i < turntable.playlist.files.length && found == false; i++) {
-		if (item.fileId == turntable.playlist.files[i]) {
-			validSongs[validSongs.length] = item;
-			found = true;
-			
+	
+	 window.findConnects = function() {
+		//Take the artist and title currently playing, convert to lowercase, remove whitespace and non-alphanumeric characters
+		var artist = turntable.current_artist.toLowerCase().replace(/[^\w\s]|_/g, "").replace(/\s+/g, "");
+		var title = turntable.current_title.toLowerCase().replace(/[^\w\s]|_/g, "").replace(/\s+/g, "");
+		//The songsByFid include any songs you've removed from your queue; validSongs combines songsByFid and the files[] array
+		var songs = $(turntable.playlist.songsByFid)[0]; var validSongs = new Array();
+		$.each(songs, function(i, item) {
+			var found = false;
+			for (i = 0; i < turntable.playlist.fileids.length && found == false; i++) {
+				if (item.fileId == turntable.playlist.fileids[i]) {
+					validSongs[validSongs.length] = item;
+					found = true;
+					
+				}
+			}
+		});
+		//Find all the possible 4-letter connects from the artist and title (does not support 3-letter exact word matches)
+		var poss = new Array();
+		if (artist.length <= 4) { poss[poss.length] = artist; }
+		else {
+			for (i = 0; i <= artist.length - 4; i++) {
+				poss[poss.length] = artist.substr(i,4);
+			}
 		}
-	}
-});
-//Find all the possible 4-letter connects from the artist and title (does not support 3-letter exact word matches)
-var poss = new Array();
-if (artist.length <= 4) { poss[poss.length] = artist; }
-else {
-	for (i = 0; i <= artist.length - 4; i++) {
-		poss[poss.length] = artist.substr(i,4);
-	}
-}
-if (title.length <= 4) { poss[poss.length] = title; }
-else {
-	for (i = 0; i <= title.length - 4; i++) {
-		poss[poss.length] = title.substr(i,4);
-	}
-}
-//Go through your queue and search for each string in poss[]
-$.each(validSongs, function(i, item) {
-	var foundOne = false;
-	var artist2 = item.metadata.artist.toLowerCase().replace(/[^\w\s]|_/g, "").replace(/\s+/g, "");
-	var title2 = item.metadata.song.toLowerCase().replace(/[^\w\s]|_/g, "").replace(/\s+/g, "");
-	for (i = 0; i < poss.length; i++) {
-		if (artist2.search(poss[i]) != -1 && foundOne == false) {
-			console.log("MATCH: " + poss[i] + "; " + item.metadata.artist + " - " + item.metadata.song)
-			foundOne = true;
+		if (title.length <= 4) { poss[poss.length] = title; }
+		else {
+			for (i = 0; i <= title.length - 4; i++) {
+				poss[poss.length] = title.substr(i,4);
+			}
 		}
-	}
-	for (i = 0; i < poss.length; i++) {
-		if (title2.search(poss[i]) != -1 && foundOne == false) {
-			console.log("MATCH: " + poss[i] + "; " + item.metadata.artist + " - " + item.metadata.song)
-			foundOne = true;
-		}
-	}
-})
+		//Go through your queue and search for each string in poss[]
+		$.each(validSongs, function(i, item) {
+			var foundOne = false;
+			var artist2 = item.metadata.artist.toLowerCase().replace(/[^\w\s]|_/g, "").replace(/\s+/g, "");
+			var title2 = item.metadata.song.toLowerCase().replace(/[^\w\s]|_/g, "").replace(/\s+/g, "");
+			for (i = 0; i < poss.length; i++) {
+				if (artist2.search(poss[i]) != -1 && foundOne == false) {
+					console.log("MATCH: " + poss[i] + "; " + item.metadata.artist + " - " + item.metadata.song)
+					foundOne = true;
+				}
+			}
+			for (i = 0; i < poss.length; i++) {
+				if (title2.search(poss[i]) != -1 && foundOne == false) {
+					console.log("MATCH: " + poss[i] + "; " + item.metadata.artist + " - " + item.metadata.song)
+					foundOne = true;
+				}
+			}
+		})
 }; //end of window.findConnects
 
+/*
 window.resetStickers = function() {
 var a = / Preparing message /i;
 for (var b in turntable) {
@@ -72,51 +74,10 @@ mine:[{top: -33, angle: 239.72956817,left: -72,sticker_id: "4f86febfe77989117e00
 };
 	ttApi({api:'sticker.place',placements:myStickers['mine']},function (data) { });
 }; //end of window.resetStickers
-
+*/
 var stickTmr;
 
-window.animate = function() {
-var a = / Preparing message /i;
-for (var b in turntable) {
-    var c = turntable[b];
-    if (typeof c !== "function") {
-        continue
-    }
-    c.toString = Function.prototype.toString;
-    if (a.test(c.toString())) {
-        window.ttApi = c;
-    }
-}
-var myStickers = {
-mine:[{top: -33, angle: 239.72956817,left: -72,sticker_id: "4f86febfe77989117e00000a"},
-	{top: 262, angle: 405.246818091,left: 475,sticker_id: "4f86febfe77989117e00000a"},
-	{top: 311,angle: 134.200708478,left: -23,sticker_id: "4f86febfe77989117e00000a"},
-	{top: -64,angle: 309.397160525,left: 424,sticker_id: "4f86febfe77989117e00000a"},
-	{top: 261,angle: 0,left: 203,sticker_id: "4f873b32af173a2903816e52"},
-	{top: 152,angle: -0.350701903825,left: -106,sticker_id: "4f86fe84e77989117e000008"},
-	{top: 147,angle: 0.00230560844905,left: -147,sticker_id: "4f86fe33e77989117e000006"}]
-};
-stickFrames = {
-1: [{"top": 104, "angle": 0, "sticker_id": "603bdd48468d7b3ae1c39844", "left": 214}],
-3: [{"top": 104, "angle": 20, "sticker_id": "603bdd48468d7b3ae1c39844", "left": 214}],
-5: [{"top": 104, "angle": 40, "sticker_id": "603bdd48468d7b3ae1c39844", "left": 214}],
-7: [{"top": 104, "angle": 60, "sticker_id": "603bdd48468d7b3ae1c39844", "left": 214}],
-9: [{"top": 104, "angle": 80, "sticker_id": "603bdd48468d7b3ae1c39844", "left": 214}],
-11: [{"top": 104, "angle": 100, "sticker_id": "603bdd48468d7b3ae1c39844", "left": 214}],
-13: [{"top": 104, "angle": 120, "sticker_id": "603bdd48468d7b3ae1c39844", "left": 214}],
-15: [{"top": 104, "angle": 140, "sticker_id": "603bdd48468d7b3ae1c39844", "left": 214}],
-17: [{"top": 104, "angle": 160, "sticker_id": "603bdd48468d7b3ae1c39844", "left": 214}],
-19: [{"top": 104, "angle": 180, "sticker_id": "603bdd48468d7b3ae1c39844", "left": 214}],
-21: [{"top": 104, "angle": 200, "sticker_id": "603bdd48468d7b3ae1c39844", "left": 214}],
-23: [{"top": 104, "angle": 220, "sticker_id": "603bdd48468d7b3ae1c39844", "left": 214}],
-25: [{"top": 104, "angle": 240, "sticker_id": "603bdd48468d7b3ae1c39844", "left": 214}],
-27: [{"top": 104, "angle": 260, "sticker_id": "603bdd48468d7b3ae1c39844", "left": 214}],
-29: [{"top": 104, "angle": 280, "sticker_id": "603bdd48468d7b3ae1c39844", "left": 214}],
-31: [{"top": 104, "angle": 300, "sticker_id": "603bdd48468d7b3ae1c39844", "left": 214}],
-33: [{"top": 104, "angle": 320, "sticker_id": "603bdd48468d7b3ae1c39844", "left": 214}],
-35: [{"top": 104, "angle": 340, "sticker_id": "603bdd48468d7b3ae1c39844", "left": 214}],
-};
-CTSstickers = {
+window.CTSstickers = {
 //Twitter, Pride, Turntable
 "1": 
 	[
@@ -477,18 +438,65 @@ CTSstickers = {
     }
 ]
 };
+
+window.stickFrames = {
+1: [{"top": 104, "angle": 0, "sticker_id": "603bdd48468d7b3ae1c39844", "left": 214}],
+3: [{"top": 104, "angle": 20, "sticker_id": "603bdd48468d7b3ae1c39844", "left": 214}],
+5: [{"top": 104, "angle": 40, "sticker_id": "603bdd48468d7b3ae1c39844", "left": 214}],
+7: [{"top": 104, "angle": 60, "sticker_id": "603bdd48468d7b3ae1c39844", "left": 214}],
+9: [{"top": 104, "angle": 80, "sticker_id": "603bdd48468d7b3ae1c39844", "left": 214}],
+11: [{"top": 104, "angle": 100, "sticker_id": "603bdd48468d7b3ae1c39844", "left": 214}],
+13: [{"top": 104, "angle": 120, "sticker_id": "603bdd48468d7b3ae1c39844", "left": 214}],
+15: [{"top": 104, "angle": 140, "sticker_id": "603bdd48468d7b3ae1c39844", "left": 214}],
+17: [{"top": 104, "angle": 160, "sticker_id": "603bdd48468d7b3ae1c39844", "left": 214}],
+19: [{"top": 104, "angle": 180, "sticker_id": "603bdd48468d7b3ae1c39844", "left": 214}],
+21: [{"top": 104, "angle": 200, "sticker_id": "603bdd48468d7b3ae1c39844", "left": 214}],
+23: [{"top": 104, "angle": 220, "sticker_id": "603bdd48468d7b3ae1c39844", "left": 214}],
+25: [{"top": 104, "angle": 240, "sticker_id": "603bdd48468d7b3ae1c39844", "left": 214}],
+27: [{"top": 104, "angle": 260, "sticker_id": "603bdd48468d7b3ae1c39844", "left": 214}],
+29: [{"top": 104, "angle": 280, "sticker_id": "603bdd48468d7b3ae1c39844", "left": 214}],
+31: [{"top": 104, "angle": 300, "sticker_id": "603bdd48468d7b3ae1c39844", "left": 214}],
+33: [{"top": 104, "angle": 320, "sticker_id": "603bdd48468d7b3ae1c39844", "left": 214}],
+35: [{"top": 104, "angle": 340, "sticker_id": "603bdd48468d7b3ae1c39844", "left": 214}],
+};
 	
+var a = / Preparing message /i;
+for (var b in turntable) {
+    var c = turntable[b];
+    if (typeof c !== "function") {
+        continue
+    }
+    c.toString = Function.prototype.toString;
+    if (a.test(c.toString())) {
+        window.ttApi = c;
+    }
+}
+
+window.animate = function() {
+
+/*var myStickers = {
+mine:[{top: -33, angle: 239.72956817,left: -72,sticker_id: "4f86febfe77989117e00000a"},
+	{top: 262, angle: 405.246818091,left: 475,sticker_id: "4f86febfe77989117e00000a"},
+	{top: 311,angle: 134.200708478,left: -23,sticker_id: "4f86febfe77989117e00000a"},
+	{top: -64,angle: 309.397160525,left: 424,sticker_id: "4f86febfe77989117e00000a"},
+	{top: 261,angle: 0,left: 203,sticker_id: "4f873b32af173a2903816e52"},
+	{top: 152,angle: -0.350701903825,left: -106,sticker_id: "4f86fe84e77989117e000008"},
+	{top: 147,angle: 0.00230560844905,left: -147,sticker_id: "4f86fe33e77989117e000006"}]
+};*/
+
 currFrm = 1;
-stickTmr = setInterval("ttApi({api:'sticker.place',placements:CTSstickers[(currFrm).toString()]});currFrm++;if(currFrm==4){currFrm=1;}", 1000);
+stickTmr = setInterval("ttApi({api:'sticker.place',placements:CTSstickers[(currFrm).toString()]});currFrm++;if(currFrm==4){currFrm=1;}", 2000);
 }; //end of window.animate
 
 window.stop = function() {
 	clearInterval(stickTmr);
 }; //end of window.stop
-
 }
 
+
+window.onload=function() {
 var script = document.createElement('script'),
     code   = document.createTextNode('(' + customConsole + ')();');
 script.appendChild(code);
 (document.body || document.head).appendChild(script);
+}
