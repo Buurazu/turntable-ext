@@ -97,37 +97,389 @@ mine:[{top: -33, angle: 239.72956817,left: -72,sticker_id: "4f86febfe77989117e00
 	{top: 147,angle: 0.00230560844905,left: -147,sticker_id: "4f86fe33e77989117e000006"}]
 };
 stickFrames = {
-1: [{"top": 104, "angle": 0, "sticker_id": "4f873b32af173a2903816e52", "left": 214}],
-3: [{"top": 104, "angle": 20, "sticker_id": "4f873b32af173a2903816e52", "left": 214}],
-5: [{"top": 104, "angle": 40, "sticker_id": "4f873b32af173a2903816e52", "left": 214}],
-7: [{"top": 104, "angle": 60, "sticker_id": "4f873b32af173a2903816e52", "left": 214}],
-9: [{"top": 104, "angle": 80, "sticker_id": "4f873b32af173a2903816e52", "left": 214}],
-11: [{"top": 104, "angle": 100, "sticker_id": "4f873b32af173a2903816e52", "left": 214}],
-13: [{"top": 104, "angle": 120, "sticker_id": "4f873b32af173a2903816e52", "left": 214}],
-15: [{"top": 104, "angle": 140, "sticker_id": "4f873b32af173a2903816e52", "left": 214}],
-17: [{"top": 104, "angle": 160, "sticker_id": "4f873b32af173a2903816e52", "left": 214}],
-19: [{"top": 104, "angle": 180, "sticker_id": "4f873b32af173a2903816e52", "left": 214}],
-21: [{"top": 104, "angle": 200, "sticker_id": "4f873b32af173a2903816e52", "left": 214}],
-23: [{"top": 104, "angle": 220, "sticker_id": "4f873b32af173a2903816e52", "left": 214}],
-25: [{"top": 104, "angle": 240, "sticker_id": "4f873b32af173a2903816e52", "left": 214}],
-27: [{"top": 104, "angle": 260, "sticker_id": "4f873b32af173a2903816e52", "left": 214}],
-29: [{"top": 104, "angle": 280, "sticker_id": "4f873b32af173a2903816e52", "left": 214}],
-31: [{"top": 104, "angle": 300, "sticker_id": "4f873b32af173a2903816e52", "left": 214}],
-33: [{"top": 104, "angle": 320, "sticker_id": "4f873b32af173a2903816e52", "left": 214}],
-35: [{"top": 104, "angle": 340, "sticker_id": "4f873b32af173a2903816e52", "left": 214}],
+1: [{"top": 104, "angle": 0, "sticker_id": "603bdd48468d7b3ae1c39844", "left": 214}],
+3: [{"top": 104, "angle": 20, "sticker_id": "603bdd48468d7b3ae1c39844", "left": 214}],
+5: [{"top": 104, "angle": 40, "sticker_id": "603bdd48468d7b3ae1c39844", "left": 214}],
+7: [{"top": 104, "angle": 60, "sticker_id": "603bdd48468d7b3ae1c39844", "left": 214}],
+9: [{"top": 104, "angle": 80, "sticker_id": "603bdd48468d7b3ae1c39844", "left": 214}],
+11: [{"top": 104, "angle": 100, "sticker_id": "603bdd48468d7b3ae1c39844", "left": 214}],
+13: [{"top": 104, "angle": 120, "sticker_id": "603bdd48468d7b3ae1c39844", "left": 214}],
+15: [{"top": 104, "angle": 140, "sticker_id": "603bdd48468d7b3ae1c39844", "left": 214}],
+17: [{"top": 104, "angle": 160, "sticker_id": "603bdd48468d7b3ae1c39844", "left": 214}],
+19: [{"top": 104, "angle": 180, "sticker_id": "603bdd48468d7b3ae1c39844", "left": 214}],
+21: [{"top": 104, "angle": 200, "sticker_id": "603bdd48468d7b3ae1c39844", "left": 214}],
+23: [{"top": 104, "angle": 220, "sticker_id": "603bdd48468d7b3ae1c39844", "left": 214}],
+25: [{"top": 104, "angle": 240, "sticker_id": "603bdd48468d7b3ae1c39844", "left": 214}],
+27: [{"top": 104, "angle": 260, "sticker_id": "603bdd48468d7b3ae1c39844", "left": 214}],
+29: [{"top": 104, "angle": 280, "sticker_id": "603bdd48468d7b3ae1c39844", "left": 214}],
+31: [{"top": 104, "angle": 300, "sticker_id": "603bdd48468d7b3ae1c39844", "left": 214}],
+33: [{"top": 104, "angle": 320, "sticker_id": "603bdd48468d7b3ae1c39844", "left": 214}],
+35: [{"top": 104, "angle": 340, "sticker_id": "603bdd48468d7b3ae1c39844", "left": 214}],
 };
 CTSstickers = {
-//Facebook, pinterest, TT.fm
-"1": [{"top": 18, "angle": 0, "sticker_id": "4f86fe33e77989117e000006", "left": 171}, {"top": 89, "angle": 90, "sticker_id": "4f86fe33e77989117e000006", "left": 175}, {"top": 208, "angle": 90, "sticker_id": "4f86fe33e77989117e000006", "left": 174}, {"top": 15, "angle": -11.4466714108, "sticker_id": "4f86fea8e77989117e000009", "left": 357}, {"top": 49, "angle": -27.484454361, "sticker_id": "4f86fea8e77989117e000009", "left": 300}, {"top": 101, "angle": -126.946932881, "sticker_id": "4f86fea8e77989117e000009", "left": 284}, {"top": 127, "angle": -147.018753314, "sticker_id": "4f86fea8e77989117e000009", "left": 337}, {"top": 232, "angle": 14.875990297, "sticker_id": "4f86fea8e77989117e000009", "left": 290}, {"top": 189, "angle": -71.8332383041, "sticker_id": "4f86fea8e77989117e000009", "left": 371}, {"top": 19, "angle": 57.4714466858, "sticker_id": "4f86fd3ee77989117e000002", "left": 95}, {"top": 35, "angle": 55.636951347, "sticker_id": "4f86fd3ee77989117e000002", "left": 62}, {"top": 55, "angle": 40.7154417976, "sticker_id": "4f86fd3ee77989117e000002", "left": 32}, {"top": 87, "angle": 13.0919822041, "sticker_id": "4f86fd3ee77989117e000002", "left": 12}, {"top": 127, "angle": -1.21121555925, "sticker_id": "4f86fd3ee77989117e000002", "left": 8}, {"top": 172, "angle": -20.4467705487, "sticker_id": "4f86fd3ee77989117e000002", "left": 15}, {"top": 205, "angle": -36.0521287224, "sticker_id": "4f86fd3ee77989117e000002", "left": 31}, {"top": 234, "angle": -44.6133530481, "sticker_id": "4f86fd3ee77989117e000002", "left": 57}, {"top": 249, "angle": -69.0795771495, "sticker_id": "4f86fd3ee77989117e000002", "left": 91}, {"top": 255, "angle": -76.0880359235, "sticker_id": "4f86fd3ee77989117e000002", "left": 123}],
-//Twitter, foursquare, meetup
-"2": [{"top": 11, "angle": 0, "sticker_id": "4f86fdede77989117e000003", "left": 171}, {"top": 83, "angle": 89.7508378991, "sticker_id": "4f86fdede77989117e000003", "left": 169}, {"top": 204, "angle": 89.5017883874, "sticker_id": "4f86fdede77989117e000003", "left": 170}, {"top": 240, "angle": 22.0212017255, "sticker_id": "4f86febfe77989117e00000a", "left": 77}, {"top": 219, "angle": 37.67881201, "sticker_id": "4f86febfe77989117e00000a", "left": 33}, {"top": 185, "angle": 71.683127126, "sticker_id": "4f86febfe77989117e00000a", "left": 2}, {"top": 135, "angle": 102.387859717, "sticker_id": "4f86febfe77989117e00000a", "left": -9}, {"top": 83, "angle": 117.208860155, "sticker_id": "4f86febfe77989117e00000a", "left": -6}, {"top": 45, "angle": 162.072096838, "sticker_id": "4f86febfe77989117e00000a", "left": 15}, {"top": 19, "angle": -183.484231391, "sticker_id": "4f86febfe77989117e00000a", "left": 67}, {"top": 240, "angle": 0.920927754959, "sticker_id": "4f86fe15e77989117e000005", "left": 310}, {"top": 232, "angle": -10.790508006, "sticker_id": "4f86fe15e77989117e000005", "left": 345}, {"top": 206, "angle": -82.853495588, "sticker_id": "4f86fe15e77989117e000005", "left": 383}, {"top": 149, "angle": -135.772158494, "sticker_id": "4f86fe15e77989117e000005", "left": 369}, {"top": 111, "angle": -136.036557012, "sticker_id": "4f86fe15e77989117e000005", "left": 332}, {"top": 15, "angle": -15.1450025093, "sticker_id": "4f86fe15e77989117e000005", "left": 379}, {"top": 61, "angle": -58.4484125094, "sticker_id": "4f86fe15e77989117e000005", "left": 316}],
-//Etsy, stackoverflow, facebook
-"3": [{"top": -7, "angle": 0, "sticker_id": "4f86fe5de77989117e000007", "left": 143}, {"top": 109, "angle": 90.4575557695, "sticker_id": "4f86fe5de77989117e000007", "left": 161}, {"top": 181, "angle": -90.2224450591, "sticker_id": "4f86fe5de77989117e000007", "left": 125}, {"top": 24, "angle": -29.3360013979, "sticker_id": "4f86fd3ee77989117e000002", "left": 410}, {"top": 45, "angle": -42.0116841664, "sticker_id": "4f86fd3ee77989117e000002", "left": 377}, {"top": 72, "angle": -40.885677944, "sticker_id": "4f86fd3ee77989117e000002", "left": 341}, {"top": 101, "angle": -381.822329263, "sticker_id": "4f86fd3ee77989117e000002", "left": 323}, {"top": 125, "angle": -48.9259740293, "sticker_id": "4f86fd3ee77989117e000002", "left": 333}, {"top": 142, "angle": -48.1407397845, "sticker_id": "4f86fd3ee77989117e000002", "left": 362}, {"top": 166, "angle": -25.9249015076, "sticker_id": "4f86fd3ee77989117e000002", "left": 389}, {"top": 201, "angle": 35.6390763116, "sticker_id": "4f86fd3ee77989117e000002", "left": 388}, {"top": 224, "angle": 51.3930705719, "sticker_id": "4f86fd3ee77989117e000002", "left": 365}, {"top": 235, "angle": 93.008377069, "sticker_id": "4f86fd3ee77989117e000002", "left": 338}, {"top": 235, "angle": 90.7957235527, "sticker_id": "4f86fd3ee77989117e000002", "left": 297}, {"top": 22, "angle": -23.6528571772, "sticker_id": "4f86fd32e77989117e000001", "left": 41}, {"top": 83, "angle": -67.8230493882, "sticker_id": "4f86fd32e77989117e000001", "left": -14}, {"top": 151, "angle": -107.821615313, "sticker_id": "4f86fd32e77989117e000001", "left": -15}, {"top": 203, "angle": -135.993789646, "sticker_id": "4f86fd32e77989117e000001", "left": 13}, {"top": 238, "angle": -181.816052426, "sticker_id": "4f86fd32e77989117e000001", "left": 71}],
-//Reddit, stickybits, twitter
-"4": [{"top": -12, "angle": 59.7506917818, "sticker_id": "4f873b32af173a2903816e52", "left": 48}, {"top": 33, "angle": 19.9968840994, "sticker_id": "4f873b32af173a2903816e52", "left": 4}, {"top": 85, "angle": 0.980432653779, "sticker_id": "4f873b32af173a2903816e52", "left": -2}, {"top": 138, "angle": -23.8808687661, "sticker_id": "4f873b32af173a2903816e52", "left": 8}, {"top": 197, "angle": -66.3438076065, "sticker_id": "4f873b32af173a2903816e52", "left": 50}, {"top": 8, "angle": 0, "sticker_id": "4f86fe84e77989117e000008", "left": 166}, {"top": 77, "angle": 89.0603548616, "sticker_id": "4f86fe84e77989117e000008", "left": 164}, {"top": 196, "angle": 89.8260587132, "sticker_id": "4f86fe84e77989117e000008", "left": 164}, {"top": 12, "angle": -161.136412444, "sticker_id": "4f86febfe77989117e00000a", "left": 382}, {"top": 30, "angle": 152.418614734, "sticker_id": "4f86febfe77989117e00000a", "left": 337}, {"top": 69, "angle": 129.068484551, "sticker_id": "4f86febfe77989117e00000a", "left": 299}, {"top": 120, "angle": 66.541612452, "sticker_id": "4f86febfe77989117e00000a", "left": 312}, {"top": 139, "angle": 22.0943893971, "sticker_id": "4f86febfe77989117e00000a", "left": 355}, {"top": 164, "angle": -101.041956027, "sticker_id": "4f86febfe77989117e00000a", "left": 398}, {"top": 207, "angle": -36.690528618, "sticker_id": "4f86febfe77989117e00000a", "left": 397}, {"top": 234, "angle": 11.5891195249, "sticker_id": "4f86febfe77989117e00000a", "left": 353}, {"top": 223, "angle": 37.2573649284, "sticker_id": "4f86febfe77989117e00000a", "left": 301}]
+//Twitter, Pride, Turntable
+"1": 
+	[
+	{
+        "top": 19,
+        "angle": 0,
+        "sticker_id": "603be170468d7b3c03065ad9",
+        "left": 158
+    },
+    {
+        "top": 19,
+        "angle": 0,
+        "sticker_id": "603be170468d7b3c03065ad9",
+        "left": 235
+    },
+    {
+        "top": 111,
+        "angle": 90,
+        "sticker_id": "603be170468d7b3c03065ad9",
+        "left": 198
+    },
+    {
+        "top": 222,
+        "angle": 90,
+        "sticker_id": "603be170468d7b3c03065ad9",
+        "left": 198
+    },
+    {
+        "top": 235,
+        "angle": 22.0212017255,
+        "sticker_id": "603bdd48468d7b3ae1c39844",
+        "left": 77
+    },
+    {
+        "top": 214,
+        "angle": 37.67881201,
+        "sticker_id": "603bdd48468d7b3ae1c39844",
+        "left": 33
+    },
+    {
+        "top": 184,
+        "angle": 71.683127126,
+        "sticker_id": "603bdd48468d7b3ae1c39844",
+        "left": 2
+    },
+    {
+        "top": 131,
+        "angle": 102.387859717,
+        "sticker_id": "603bdd48468d7b3ae1c39844",
+        "left": -9
+    },
+    {
+        "top": 79,
+        "angle": 117.208860155,
+        "sticker_id": "603bdd48468d7b3ae1c39844",
+        "left": -6
+    },
+    {
+        "top": 41,
+        "angle": 162.072096838,
+        "sticker_id": "603bdd48468d7b3ae1c39844",
+        "left": 15
+    },
+    {
+        "top": 15,
+        "angle": -183.484231391,
+        "sticker_id": "603bdd48468d7b3ae1c39844",
+        "left": 67
+    },
+    {
+        "top": 240,
+        "angle": 0.920927754959,
+        "sticker_id": "603bdd30468d7b3ada628123",
+        "left": 309
+    },
+    {
+        "top": 229,
+        "angle": -10.790508006,
+        "sticker_id": "603bdd30468d7b3ada628123",
+        "left": 346
+    },
+    {
+        "top": 195,
+        "angle": -73.32670971130288,
+        "sticker_id": "603bdd30468d7b3ada628123",
+        "left": 381
+    },
+    {
+        "top": 142,
+        "angle": -135.772158494,
+        "sticker_id": "603bdd30468d7b3ada628123",
+        "left": 369
+    },
+    {
+        "top": 110,
+        "angle": -139.45032225066186,
+        "sticker_id": "603bdd30468d7b3ada628123",
+        "left": 321
+    },
+    {
+        "top": 17,
+        "angle": -20.80435440251138,
+        "sticker_id": "603bdd30468d7b3ada628123",
+        "left": 355
+    },
+    {
+        "top": 57,
+        "angle": -58.4484125094,
+        "sticker_id": "603bdd30468d7b3ada628123",
+        "left": 308
+    }
+],
+//nasa, gamestop, twitter
+"2": [
+	{
+        "top": 12,
+        "angle": 0,
+        "sticker_id": "603bda8c468d7b3a37249f00",
+        "left": 97
+    },
+    {
+        "top": 141,
+        "angle": 90,
+        "sticker_id": "603bda8c468d7b3a37249f00",
+        "left": 91
+    },
+    {
+        "top": 14,
+        "angle": 57.4714466858,
+        "sticker_id": "603be0bc468d7b3bdc139274",
+        "left": 88
+    },
+    {
+        "top": 31,
+        "angle": 55.636951347,
+        "sticker_id": "603be0bc468d7b3bdc139274",
+        "left": 56
+    },
+    {
+        "top": 55,
+        "angle": 40.7154417976,
+        "sticker_id": "603be0bc468d7b3bdc139274",
+        "left": 32
+    },
+    {
+        "top": 87,
+        "angle": 13.0919822041,
+        "sticker_id": "603be0bc468d7b3bdc139274",
+        "left": 12
+    },
+    {
+        "top": 127,
+        "angle": -1.21121555925,
+        "sticker_id": "603be0bc468d7b3bdc139274",
+        "left": 8
+    },
+    {
+        "top": 168,
+        "angle": -20.4467705487,
+        "sticker_id": "603be0bc468d7b3bdc139274",
+        "left": 14
+    },
+    {
+        "top": 202,
+        "angle": -36.0521287224,
+        "sticker_id": "603be0bc468d7b3bdc139274",
+        "left": 35
+    },
+    {
+        "top": 228,
+        "angle": -44.6133530481,
+        "sticker_id": "603be0bc468d7b3bdc139274",
+        "left": 68
+    },
+    {
+        "top": 236,
+        "angle": -69.0795771495,
+        "sticker_id": "603be0bc468d7b3bdc139274",
+        "left": 101
+    },
+    {
+        "top": 12,
+        "angle": -161.136412444,
+        "sticker_id": "603bdd48468d7b3ae1c39844",
+        "left": 382
+    },
+    {
+        "top": 30,
+        "angle": 152.418614734,
+        "sticker_id": "603bdd48468d7b3ae1c39844",
+        "left": 337
+    },
+    {
+        "top": 69,
+        "angle": 129.068484551,
+        "sticker_id": "603bdd48468d7b3ae1c39844",
+        "left": 299
+    },
+    {
+        "top": 120,
+        "angle": 66.541612452,
+        "sticker_id": "603bdd48468d7b3ae1c39844",
+        "left": 312
+    },
+    {
+        "top": 139,
+        "angle": 22.0943893971,
+        "sticker_id": "603bdd48468d7b3ae1c39844",
+        "left": 355
+    },
+    {
+        "top": 164,
+        "angle": -101.041956027,
+        "sticker_id": "603bdd48468d7b3ae1c39844",
+        "left": 398
+    },
+    {
+        "top": 207,
+        "angle": -36.690528618,
+        "sticker_id": "603bdd48468d7b3ae1c39844",
+        "left": 397
+    },
+    {
+        "top": 234,
+        "angle": 11.5891195249,
+        "sticker_id": "603bdd48468d7b3ae1c39844",
+        "left": 353
+    },
+    {
+        "top": 223,
+        "angle": 37.2573649284,
+        "sticker_id": "603bdd48468d7b3ae1c39844",
+        "left": 301
+    }
+],
+
+//turntable nyan nasa
+"3": [
+	{
+        "top": 191,
+        "angle": 90,
+        "sticker_id": "603bdf45468d7b3b8ae41ee5",
+        "left": 163
+    },
+    {
+        "top": 107,
+        "angle": 90,
+        "sticker_id": "603bdf45468d7b3b8ae41ee5",
+        "left": 163
+    },
+    {
+        "top": 24,
+        "angle": 90,
+        "sticker_id": "603bdf45468d7b3b8ae41ee5",
+        "left": 163
+    },
+    {
+        "top": -2,
+        "angle": 0,
+        "sticker_id": "603bdf45468d7b3b8ae41ee5",
+        "left": 172
+    },
+    {
+        "top": 16,
+        "angle": -12.321201061819977,
+        "sticker_id": "603bdd30468d7b3ada628123",
+        "left": 65
+    },
+    {
+        "top": 44,
+        "angle": -22.064959858576287,
+        "sticker_id": "603bdd30468d7b3ada628123",
+        "left": 18
+    },
+    {
+        "top": 101,
+        "angle": -65.59643440444239,
+        "sticker_id": "603bdd30468d7b3ada628123",
+        "left": -19
+    },
+    {
+        "top": 172,
+        "angle": -117.40062070538202,
+        "sticker_id": "603bdd30468d7b3ada628123",
+        "left": -13
+    },
+    {
+        "top": 205,
+        "angle": -133.0340205740179,
+        "sticker_id": "603bdd30468d7b3ada628123",
+        "left": 21
+    },
+    {
+        "top": 229,
+        "angle": -147.70693170224888,
+        "sticker_id": "603bdd30468d7b3ada628123",
+        "left": 74
+    },
+    {
+        "top": 6,
+        "angle": -206.07700852263508,
+        "sticker_id": "603be0bc468d7b3bdc139274",
+        "left": 398
+    },
+    {
+        "top": 23,
+        "angle": -558.2453450672842,
+        "sticker_id": "603be0bc468d7b3bdc139274",
+        "left": 362
+    },
+    {
+        "top": 41,
+        "angle": -192.33243142063597,
+        "sticker_id": "603be0bc468d7b3bdc139274",
+        "left": 339
+    },
+    {
+        "top": 78,
+        "angle": -603.7624995353005,
+        "sticker_id": "603be0bc468d7b3bdc139274",
+        "left": 335
+    },
+    {
+        "top": 104,
+        "angle": -818.2347536622532,
+        "sticker_id": "603be0bc468d7b3bdc139274",
+        "left": 370
+    },
+    {
+        "top": 127,
+        "angle": -94.55833034550992,
+        "sticker_id": "603be0bc468d7b3bdc139274",
+        "left": 395
+    },
+    {
+        "top": 163,
+        "angle": -70.93658738906721,
+        "sticker_id": "603be0bc468d7b3bdc139274",
+        "left": 403
+    },
+    {
+        "top": 200,
+        "angle": -35.26880714078847,
+        "sticker_id": "603be0bc468d7b3bdc139274",
+        "left": 384
+    },
+    {
+        "top": 222,
+        "angle": -12.993910648285663,
+        "sticker_id": "603be0bc468d7b3bdc139274",
+        "left": 355
+    },
+    {
+        "top": 230,
+        "angle": -349.10630935429896,
+        "sticker_id": "603be0bc468d7b3bdc139274",
+        "left": 323
+    }
+]
 };
+	
 currFrm = 1;
-stickTmr = setInterval("ttApi({api:'sticker.place',placements:CTSstickers[(currFrm).toString()]});currFrm++;if(currFrm==5){currFrm=1;}", 1000);
+stickTmr = setInterval("ttApi({api:'sticker.place',placements:CTSstickers[(currFrm).toString()]});currFrm++;if(currFrm==4){currFrm=1;}", 1000);
 }; //end of window.animate
 
 window.stop = function() {
