@@ -3,7 +3,7 @@ function customConsole() {
 	window.cleanData = function(str) {
 		str = str.toLowerCase().replace(/[^\w\s]|_/g, "").replace(/\s+/g, "");
 		str = str.replace("officialaudio","").replace("officialvideo","").replace("officialmusicvideo","");
-		str = str.replace("remastered","").replace("officialhdvideo","");
+		str = str.replace("remastered","").replace("officialhdvideo","").replace("remix","");
 		
 		return str;
 	}
@@ -61,7 +61,7 @@ function customConsole() {
 			for (i = 0; i < poss.length; i++) {
 				if (artist2.search(poss[i]) != -1 && foundOne == false) {
 					//console.log("MATCH: " + poss[i] + "; " + item.metadata.artist + " - " + item.metadata.song)
-					results = results + "MATCH: " + poss[i] + "; " + item.metadata.artist + " - " + item.metadata.song + "\n";
+					results = results + poss[i].toUpperCase() + ": " + item.metadata.artist + " - " + item.metadata.song + "\n";
 					currResults++;
 					foundOne = true;
 				}
@@ -69,7 +69,7 @@ function customConsole() {
 			for (i = 0; i < poss.length; i++) {
 				if (title2.search(poss[i]) != -1 && foundOne == false) {
 					//console.log("MATCH: " + poss[i] + "; " + item.metadata.artist + " - " + item.metadata.song)
-					results = results + "MATCH: " + poss[i] + "; " + item.metadata.artist + " - " + item.metadata.song + "\n";
+					results = results + poss[i].toUpperCase() + ": " + item.metadata.artist + " - " + item.metadata.song + "\n";
 					currResults++;
 					foundOne = true;
 				}
@@ -504,19 +504,8 @@ for (var b in turntable) {
 }
 
 window.animate = function() {
-
-/*var myStickers = {
-mine:[{top: -33, angle: 239.72956817,left: -72,sticker_id: "4f86febfe77989117e00000a"},
-	{top: 262, angle: 405.246818091,left: 475,sticker_id: "4f86febfe77989117e00000a"},
-	{top: 311,angle: 134.200708478,left: -23,sticker_id: "4f86febfe77989117e00000a"},
-	{top: -64,angle: 309.397160525,left: 424,sticker_id: "4f86febfe77989117e00000a"},
-	{top: 261,angle: 0,left: 203,sticker_id: "4f873b32af173a2903816e52"},
-	{top: 152,angle: -0.350701903825,left: -106,sticker_id: "4f86fe84e77989117e000008"},
-	{top: 147,angle: 0.00230560844905,left: -147,sticker_id: "4f86fe33e77989117e000006"}]
-};*/
-
 currFrm = 1;
-stickTmr = setInterval("ttApi({api:'sticker.place',placements:CTSstickers[(currFrm).toString()]});currFrm++;if(currFrm==4){currFrm=1;}", 10000);
+stickTmr = setInterval("ttApi({api:'sticker.place',placements:CTSstickers[(currFrm).toString()]});currFrm++;if(currFrm==4){currFrm=1;}", 12000);
 }; //end of window.animate
 
 window.stop = function() {
