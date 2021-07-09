@@ -4,6 +4,7 @@
     "description": "does things on turntable.fm",
     "version": "0.1",
     "permissions": ["tabs", "*://*.turntable.fm/*"],
+	
     "content_scripts": [
         {
         "matches": [

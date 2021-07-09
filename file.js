@@ -1,15 +1,38 @@
 function customConsole() {
 	
+	window.cleanData = function(str) {
+		str = str.toLowerCase().replace(/[^\w\s]|_/g, "").replace(/\s+/g, "");
+		str = str.replace("officialaudio","").replace("officialvideo","").replace("officialmusicvideo","");
+		str = str.replace("remastered","").replace("officialhdvideo","");
+		
+		return str;
+	}
+	
 	 window.findConnects = function() {
 		//Take the artist and title currently playing, convert to lowercase, remove whitespace and non-alphanumeric characters
-		var artist = turntable.current_artist.toLowerCase().replace(/[^\w\s]|_/g, "").replace(/\s+/g, "");
-		var title = turntable.current_title.toLowerCase().replace(/[^\w\s]|_/g, "").replace(/\s+/g, "");
+		var results = "";
+		var artist; var title;
+		
+		var maxResults = 25;
+		var currResults = 0;
+		
+		if (turntable.current_artist == null) {
+			return false;
+		}
+		else {
+			artist = turntable.current_artist;
+			title = turntable.current_title;
+		}
+		
+		artist = cleanData(artist);
+		title = cleanData(title);
+		
 		//The songsByFid include any songs you've removed from your queue; validSongs combines songsByFid and the files[] array
 		var songs = $(turntable.playlist.songsByFid)[0]; var validSongs = new Array();
 		$.each(songs, function(i, item) {
 			var found = false;
 			for (i = 0; i < turntable.playlist.fileids.length && found == false; i++) {
-				if (item.fileId == turntable.playlist.fileids[i]) {
+				if (item != null && item.fileId != null && item.fileId == turntable.playlist.fileids[i]) {
 					validSongs[validSongs.length] = item;
 					found = true;
 					
@@ -33,21 +56,29 @@ function customConsole() {
 		//Go through your queue and search for each string in poss[]
 		$.each(validSongs, function(i, item) {
 			var foundOne = false;
-			var artist2 = item.metadata.artist.toLowerCase().replace(/[^\w\s]|_/g, "").replace(/\s+/g, "");
-			var title2 = item.metadata.song.toLowerCase().replace(/[^\w\s]|_/g, "").replace(/\s+/g, "");
+			var artist2 = cleanData(item.metadata.artist);
+			var title2 = cleanData(item.metadata.song);
 			for (i = 0; i < poss.length; i++) {
 				if (artist2.search(poss[i]) != -1 && foundOne == false) {
-					console.log("MATCH: " + poss[i] + "; " + item.metadata.artist + " - " + item.metadata.song)
+					//console.log("MATCH: " + poss[i] + "; " + item.metadata.artist + " - " + item.metadata.song)
+					results = results + "MATCH: " + poss[i] + "; " + item.metadata.artist + " - " + item.metadata.song + "\n";
+					currResults++;
 					foundOne = true;
 				}
 			}
 			for (i = 0; i < poss.length; i++) {
 				if (title2.search(poss[i]) != -1 && foundOne == false) {
-					console.log("MATCH: " + poss[i] + "; " + item.metadata.artist + " - " + item.metadata.song)
+					//console.log("MATCH: " + poss[i] + "; " + item.metadata.artist + " - " + item.metadata.song)
+					results = results + "MATCH: " + poss[i] + "; " + item.metadata.artist + " - " + item.metadata.song + "\n";
+					currResults++;
 					foundOne = true;
 				}
 			}
+			if (currResults >= maxResults) return false;
 		})
+		if (results == "") results = "No connects found!";
+		//alert(results);
+		document.getElementById("footer").innerText = results;
 }; //end of window.findConnects
 
 /*
@@ -485,12 +516,30 @@ mine:[{top: -33, angle: 239.72956817,left: -72,sticker_id: "4f86febfe77989117e00
 };*/
 
 currFrm = 1;
-stickTmr = setInterval("ttApi({api:'sticker.place',placements:CTSstickers[(currFrm).toString()]});currFrm++;if(currFrm==4){currFrm=1;}", 2000);
+stickTmr = setInterval("ttApi({api:'sticker.place',placements:CTSstickers[(currFrm).toString()]});currFrm++;if(currFrm==4){currFrm=1;}", 10000);
 }; //end of window.animate
 
 window.stop = function() {
 	clearInterval(stickTmr);
 }; //end of window.stop
+
+connectTmr = setInterval("findConnects();", 10000);
+
+/*
+function KeyPress(e) {
+      var evtobj = window.event? event : e
+	  //Ctrl+A
+	  if (evtobj.keyCode == 65 && evtobj.ctrlKey) window.animate();
+	  //Ctrl+C
+      if (evtobj.keyCode == 67 && evtobj.ctrlKey) window.findConnects();
+	  //Ctrl+S
+	  if (evtobj.keyCode == 83 && evtobj.ctrlKey) window.stop();
+	  
+}
+
+document.onkeydown = KeyPress;
+*/
+
 }
 
 
@@ -500,3 +549,5 @@ var script = document.createElement('script'),
 script.appendChild(code);
 (document.body || document.head).appendChild(script);
 }
+
+
