@@ -11,7 +11,7 @@
             "*://*.turntable.fm/*"
             ],
         "js": ["file.js"],
-        "run_at": "document_end"    // Pay attention to this line
+        "run_at": "document_end"
         }
     ], 
     "manifest_version": 2

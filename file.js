@@ -4,16 +4,17 @@ function customConsole() {
 		str = str.toLowerCase().replace(/[^\w\s]|_/g, "").replace(/\s+/g, "");
 		str = str.replace("officialaudio","").replace("officialvideo","").replace("officialmusicvideo","");
 		str = str.replace("remastered","").replace("officialhdvideo","").replace("remix","");
+		str = str.replace("lyricvideo","").replace("musicvideo","").replace("originalvideo","");
 		
 		return str;
 	}
 	
-	 window.findConnects = function() {
+	window.findConnects = function(queueSong) {
 		//Take the artist and title currently playing, convert to lowercase, remove whitespace and non-alphanumeric characters
 		var results = "";
 		var artist; var title;
 		
-		var maxResults = 25;
+		var maxResults = 24;
 		var currResults = 0;
 		
 		if (turntable.current_artist == null) {
@@ -27,18 +28,6 @@ function customConsole() {
 		artist = cleanData(artist);
 		title = cleanData(title);
 		
-		//The songsByFid include any songs you've removed from your queue; validSongs combines songsByFid and the files[] array
-		var songs = $(turntable.playlist.songsByFid)[0]; var validSongs = new Array();
-		$.each(songs, function(i, item) {
-			var found = false;
-			for (i = 0; i < turntable.playlist.fileids.length && found == false; i++) {
-				if (item != null && item.fileId != null && item.fileId == turntable.playlist.fileids[i]) {
-					validSongs[validSongs.length] = item;
-					found = true;
-					
-				}
-			}
-		});
 		//Find all the possible 4-letter connects from the artist and title (does not support 3-letter exact word matches)
 		var poss = new Array();
 		if (artist.length <= 4) { poss[poss.length] = artist; }
@@ -53,60 +42,40 @@ function customConsole() {
 				poss[poss.length] = title.substr(i,4);
 			}
 		}
+		
 		//Go through your queue and search for each string in poss[]
-		$.each(validSongs, function(i, item) {
-			var foundOne = false;
-			var artist2 = cleanData(item.metadata.artist);
-			var title2 = cleanData(item.metadata.song);
-			for (i = 0; i < poss.length; i++) {
-				if (artist2.search(poss[i]) != -1 && foundOne == false) {
-					//console.log("MATCH: " + poss[i] + "; " + item.metadata.artist + " - " + item.metadata.song)
-					results = results + poss[i].toUpperCase() + ": " + item.metadata.artist + " - " + item.metadata.song + "\n";
-					currResults++;
-					foundOne = true;
+		var firstFound = -1;
+		
+		ttApi({api:'playlist.all',playlist_name:'default'},function (data) {
+			//check in reverse, so the least-played song gets auto-moved to top
+			for (cur = 0; cur < data.list.length; cur++) {
+				var item = data.list[cur];
+				if (item._id != turntable.current_songid) {
+					var artist2 = cleanData(item.metadata.artist);
+					var title2 = cleanData(item.metadata.song);
+					for (i = 0; i < poss.length; i++) {
+						if ((artist2.search(poss[i]) != -1 || title2.search(poss[i]) != -1)) {
+							results = results + poss[i].toUpperCase() + ": " + item.metadata.artist + " - " + item.metadata.song + "\n";
+							if (currResults == 0) firstFound = cur;
+							currResults++;
+							break;
+						}
+					}
+					if (currResults >= maxResults) break;
 				}
 			}
-			for (i = 0; i < poss.length; i++) {
-				if (title2.search(poss[i]) != -1 && foundOne == false) {
-					//console.log("MATCH: " + poss[i] + "; " + item.metadata.artist + " - " + item.metadata.song)
-					results = results + poss[i].toUpperCase() + ": " + item.metadata.artist + " - " + item.metadata.song + "\n";
-					currResults++;
-					foundOne = true;
-				}
+			
+			if (queueSong && currResults > 0) {
+				turntable.playlist.reorder(firstFound,0);
+				setTimeout("turntable.playlist.loadList();",100);
 			}
-			if (currResults >= maxResults) return false;
-		})
-		if (results == "") results = "No connects found!";
-		//alert(results);
-		document.getElementById("footer").innerText = results;
-}; //end of window.findConnects
+			
+			if (results == "") results = "No connects found!";
+			document.getElementById("footer").innerText = results;
+		});
+		
 
-/*
-window.resetStickers = function() {
-var a = / Preparing message /i;
-for (var b in turntable) {
-    var c = turntable[b];
-    if (typeof c !== "function") {
-        continue
-    }
-    c.toString = Function.prototype.toString;
-    if (a.test(c.toString())) {
-        ttApi = c;
-    }
-}
-var myStickers = {
-mine:[{top: -33, angle: 239.72956817,left: -72,sticker_id: "4f86febfe77989117e00000a"},
-	{top: 262, angle: 405.246818091,left: 475,sticker_id: "4f86febfe77989117e00000a"},
-	{top: 311,angle: 134.200708478,left: -23,sticker_id: "4f86febfe77989117e00000a"},
-	{top: -64,angle: 309.397160525,left: 424,sticker_id: "4f86febfe77989117e00000a"},
-	{top: 261,angle: 0,left: 203,sticker_id: "4f873b32af173a2903816e52"},
-	{top: 152,angle: -0.350701903825,left: -106,sticker_id: "4f86fe84e77989117e000008"},
-	{top: 147,angle: 0.00230560844905,left: -147,sticker_id: "4f86fe33e77989117e000006"}]
-};
-	ttApi({api:'sticker.place',placements:myStickers['mine']},function (data) { });
-}; //end of window.resetStickers
-*/
-var stickTmr;
+}; //end of window.findConnects
 
 window.CTSstickers = {
 //Twitter, Pride, Turntable
@@ -503,6 +472,8 @@ for (var b in turntable) {
     }
 }
 
+var stickTmr;
+
 window.animate = function() {
 currFrm = 1;
 stickTmr = setInterval("ttApi({api:'sticker.place',placements:CTSstickers[(currFrm).toString()]});currFrm++;if(currFrm==4){currFrm=1;}", 12000);
@@ -512,7 +483,20 @@ window.stop = function() {
 	clearInterval(stickTmr);
 }; //end of window.stop
 
+
+//check for connects every 10 seconds
 connectTmr = setInterval("findConnects();", 10000);
+
+//check for new song being played every second
+var curSong = turntable.current_songid;
+songTmr = setInterval("checkSong();", 1000);
+
+window.checkSong = function() {
+	if (turntable.current_songid != null && turntable.current_songid != curSong) {
+		curSong = turntable.current_songid;
+		setTimeout("findConnects(true);", 100);
+	}
+};
 
 /*
 function KeyPress(e) {
